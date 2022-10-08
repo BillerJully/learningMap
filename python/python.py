@@ -1,3 +1,7 @@
+from asyncio import QueueEmpty
+import queue
+
+
 DATABASE = {
     'Серёга': 'Омск',
     'Соня': 'Москва',
@@ -16,7 +20,10 @@ def process_anfisa(query):
         friends_list = ''
         for names in DATABASE.keys():
             friends_list += names + ' '
-        return("Твои друзья: " + friends_list)  
+        return("Твои друзья: " + friends_list)
+    elif query == 'Где все мои друзья?':
+        answer = 'Я поняла, это вопрос про города!'
+        return answer  
     else:
         return '<неизвестный запрос>'
 
@@ -24,3 +31,4 @@ def process_anfisa(query):
 print('Привет, я Анфиса!')
 print(process_anfisa('Сколько у меня друзей?'))
 print(process_anfisa('Кто все мои друзья?'))
+print(process_anfisa('Где все мои друзья?'))
