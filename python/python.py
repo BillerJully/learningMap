@@ -22,8 +22,10 @@ def process_anfisa(query):
             friends_list += names + ' '
         return("Твои друзья: " + friends_list)
     elif query == 'Где все мои друзья?':
-        answer = 'Я поняла, это вопрос про города!'
-        return answer  
+        city_list = ''
+        for city in DATABASE.values():
+            city_list += city + ' '
+        return ("Твои друзья  в городах: " + city_list) 
     else:
         return '<неизвестный запрос>'
 
